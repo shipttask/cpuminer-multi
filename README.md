@@ -26,15 +26,21 @@ Algorithms
  * ✓ __sha256d__ (Bitcoin, Freicoin, Peercoin/PPCoin, Terracoin, ...)
  * ✓ __axiom__ (Axiom Shabal-256 based MemoHash)
  * ✓ __bastion__ (Joincoin [J])
+ * ✓ __bitcore__ Permuted serie of 10 algos (BitCore)
  * ✓ __blake__ (Saffron [SFR] Blake-256)
+ * ✓ __blake2s__ (NevaCoin Blake2-S 256)
  * ✓ __bmw__ (Midnight [MDT] BMW-256)
- * ✓ __cryptonight__ (Bytecoin [BCN], Monero)
+ * ✓ __cryptonight__ (Bytecoin [BCN], Monero [XMR])
  * ✓ __cryptonight-light__ (Aeon)
+ * ✓ __decred__ (Blake256-14 [DCR])
  * ✓ __dmd-gr__ (Diamond-Groestl)
  * ✓ __fresh__ (FreshCoin)
  * ✓ __groestl__ (Groestlcoin)
- * ✓ __lyra2RE__ (Lyrabar, Cryptocoin)
- * ✓ __lyra2REv2__ (VertCoin [VTC])
+ * ✓ __jha__ (JackpotCoin, SweepStake)
+ * ✓ __lbry__ (LBRY Credits [LBC])
+ * ✓ __lyra2RE__ (Cryptocoin)
+ * ✓ __lyra2REv2__ (VertCoin [VTC]
+ * ✓ __myr-gr__ Myriad-Groestl (MyriadCoin [MYR])
  * ✓ __myr-gr__ (Myriad-Groestl)
  * ✓ __m7m__ (Magicoin [XMG])
  * ✓ __neoscrypt__ (Feathercoin)
@@ -42,24 +48,31 @@ Algorithms
  * ✓ __pentablake__ (Joincoin)
  * ✓ __pluck__ (Supcoin [SUP])
  * ✓ __quark__ (Quarkcoin)
- * ✓ __qubit__ (MyriadCoin [MYR])
+ * ✓ __qubit__ (GeoCoin)
  * ✓ __skein__ (Skeincoin, Myriadcoin, Xedoscoin, ...)
  * ✓ __skein2__ (Woodcoin)
  * ✓ __s3__ (OneCoin)
+ * ✓ __sia__ (Reversed Blake2B for SIA [SC])
+ * ✓ __sib__ X11 + gost streebog (SibCoin)
+ * ✓ __timetravel__ Permuted serie of 8 algos (MachineCoin [MAC])
+ * ✓ __tribus__ 3 of the top NIST5 algos (Denarius [DNR])
+ * ✓ __vanilla__ (Blake-256 8-rounds - double sha256 [VNL])
+ * ✓ __veltor__ (Veltor [VLT])
+ * ✓ __xevan__ x17 x 2 on bigger header (BitSend [BSD])
+ * ✓ __x11evo__ (Revolver [XRE])
  * ✓ __x11__ (Darkcoin [DRK], Hirocoin, Limecoin, ...)
  * ✓ __x13__ (Sherlockcoin, [ACE], [B2B], [GRC], [XHC], ...)
  * ✓ __x14__ (X14, Webcoin [WEB])
  * ✓ __x15__ (RadianceCoin [RCE])
- * ✓ __yescrypt__ (GlobalBoostY [BSTY], Unitus [UIS])
+ * ✓ __x17__ (Verge [XVG])
+ * ✓ __yescrypt__ (GlobalBoostY [BSTY], Unitus [UIS], MyriadCoin [MYR])
  * ✓ __zr5__ (Ziftrcoin [ZRC])
 
 #### Implemented, but untested
- * ? blake2s
  * ? hefty1 (Heavycoin)
  * ? keccak (Maxcoin  HelixCoin, CryptoMeth, Galleon, 365coin, Slothcoin, BitcointalkCoin)
  * ? luffa (Joincoin, Doomcoin)
  * ? shavite3 (INKcoin)
- * ? sib X11 + gost (SibCoin)
 
 #### Planned support for
  * *scrypt-jane* (YaCoin, CopperBars, Pennies, Tickets, etc..)
@@ -83,16 +96,22 @@ Build
 =====
 
 #### Basic *nix build instructions:
- * just use ./build.sh
+ * just use `./build.sh`
 _OR_
- * ./autogen.sh	# only needed if building from git repo
- * ./nomacro.pl	# only needed if building on Mac OS X or with Clang
- * ./configure CFLAGS="*-march=native*" --with-crypto --with-curl
-   * # Use -march=native if building for a single machine
- * make
+
+```
+ ./autogen.sh	# only needed if building from git repo
+ ./nomacro.pl	# only needed if building on Mac OS X or with Clang
+ ./configure CFLAGS="*-march=native*" --with-crypto --with-curl
+ # Use -march=native if building for a single machine
+ make
+```
 
 #### Note for Debian/Ubuntu users:
- * apt-get install autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev
+
+```
+ apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++
+```
 
 #### Notes for AIX users:
  * To build a 64-bit binary, export OBJECT_MODE=64
@@ -113,16 +132,18 @@ _OR_
  * Install openssl devel (https://www.openssl.org/related/binaries.html)
  * Download and "make install" sources of libgmp (v5.1 and v6 are ok)
  * In the MSYS shell, run:
-   * for 64bit, you can use ./mingw64.sh else :
-     ./autogen.sh	# only needed if building from git repo
-   * LIBCURL="-lcurldll" ./configure CFLAGS="*-march=native*"
-     * # Use -march=native if building for a single machine
-   * make
+   * for 64bit, you can use `./mingw64.sh` else :
+     `./autogen.sh	# only needed if building from git repo`
+   ```
+   LIBCURL="-lcurldll" ./configure CFLAGS="*-march=native*"
+   # Use -march=native if building for a single machine
+   make
+    ```
 
 #### Architecture-specific notes:
  * ARM:
    * No runtime CPU detection. The miner can take advantage of some instructions specific to ARMv5E and later processors, but the decision whether to use them is made at compile time, based on compiler-defined macros.
-   * To use NEON instructions, add "-mfpu=neon" to CFLAGS.
+   * To use NEON instructions, add `"-mfpu=neon"` to CFLAGS.
  * x86:
    * The miner checks for SSE2 instructions support at runtime, and uses them if they are available.
  * x86-64:	
@@ -148,16 +169,17 @@ If no protocol is specified, the proxy is assumed to be a HTTP proxy.
 When the --proxy option is not used, the program honors the http_proxy and all_proxy environment variables.
 
 Donations
-=========
+==================
 Donations for the work done in this fork are accepted :
 
 Tanguy Pruvot :
-* BTC: `1FhDPLPpw18X4srecguG3MxJYe4a1JsZnd`
-* ZRC: `ZX6LmrCwphNgitxvDnf8TX6Tsegfxpeozx`
 
+BTC: 1FhDPLPpw18X4srecguG3MxJYe4a1JsZnd
+ZRC: ZX6LmrCwphNgitxvDnf8TX6Tsegfxpeozx
 Lucas Jones :
-* MRO: `472haywQKoxFzf7asaQ4XKBc2foAY4ezk8HiN63ifW4iAbJiLnfmJfhHSR9XmVKw2WYPnszJV9MEHj9Z5WMK9VCNHaGLDmJ`
-* BTC: `139QWoktddChHsZMWZFxmBva4FM96X2dhE`
+
+MRO: 472haywQKoxFzf7asaQ4XKBc2foAY4ezk8HiN63ifW4iAbJiLnfmJfhHSR9XmVKw2WYPnszJV9MEHj9Z5WMK9VCNHaGLDmJ
+BTC: 139QWoktddChHsZMWZFxmBva4FM96X2dhE
 
 Credits
 =======

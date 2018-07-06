@@ -42,7 +42,9 @@ cpuminer_SOURCES = \
   sha3/sph_shabal.c \
   sha3/sph_tiger.c \
   sha3/sph_whirlpool.c \
+  sha3/gost_streebog.c \
   crypto/blake2s.c \
+  crypto/blake2b.c \
   crypto/oaes_lib.c \
   crypto/c_keccak.c \
   crypto/c_groestl.c \
@@ -64,11 +66,14 @@ cpuminer_SOURCES = \
   algo/c11.c \
   algo/cryptonight.c \
   algo/cryptolight.c \
+  algo/decred.c \
   algo/drop.c \
   algo/fresh.c \
   algo/groestl.c \
   algo/heavy.c \
   algo/ink.c \
+  algo/jha.c \
+  algo/lbry.c \
   algo/luffa.c \
   algo/lyra2re.c \
   algo/lyra2rev2.c \
@@ -84,15 +89,23 @@ cpuminer_SOURCES = \
   algo/scrypt.c \
   algo/scrypt-jane.c \
   algo/sha2.c \
+  algo/sia.c \
   algo/sibcoin.c \
   algo/skein.c \
   algo/skein2.c \
   algo/s3.c \
+  algo/bitcore.c \
+  algo/timetravel.c \
+  algo/tribus.c \
+  algo/veltor.c \
+  algo/x11evo.c \
   algo/velvet.c \
   algo/x11.c \
   algo/x13.c \
   algo/x14.c \
   algo/x15.c \
+  algo/x17.c \
+  algo/xevan.c \
   algo/yescrypt.c \
   algo/zr5.c
 

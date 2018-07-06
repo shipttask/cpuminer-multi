@@ -40,12 +40,12 @@
 
 #ifdef _MSC_VER // todo: msvc
 #define ASM 0
-#elif defined(__arm__)
+#elif defined(__aarch64__)
 #define ASM 0
 #endif
 
 #ifdef __GNUC__
-#if defined(NOASM) || defined(__arm__)
+#if defined(NOASM) || defined(__aarch64__)
 #define ASM 0
 #else
 #define ASM 1
@@ -1036,7 +1036,6 @@ int scanhash_neoscrypt(int thr_id, struct work *work, uint32_t max_nonce, uint64
     uint32_t profile)
 {
     uint32_t _ALIGN(128) hash[8];
-    uint32_t _ALIGN(128) endiandata[20];
     uint32_t *pdata = work->data;
     uint32_t *ptarget = work->target;
 

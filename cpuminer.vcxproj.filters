@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="cpu-miner.c" />
@@ -26,6 +26,9 @@
       <Filter>sph</Filter>
     </ClCompile>
     <ClCompile Include="sha3\sph_hamsi.c">
+      <Filter>sph</Filter>
+    </ClCompile>
+    <ClCompile Include="sha3\sph_haval.c">
       <Filter>sph</Filter>
     </ClCompile>
     <ClCompile Include="sha3\sph_haval.c">
@@ -76,7 +79,7 @@
     <ClCompile Include="sha3\aes_helper.c">
       <Filter>sph</Filter>
     </ClCompile>
-    <ClCompile Include="sha3\sph_gost.c">
+    <ClCompile Include="sha3\gost_streebog.c">
       <Filter>sph</Filter>
     </ClCompile>
     <ClCompile Include="compat\winansi.c">
@@ -107,6 +110,9 @@
       <Filter>jansson</Filter>
     </ClCompile>
     <ClCompile Include="crypto\blake2s.c">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\blake2b.c">
       <Filter>crypto</Filter>
     </ClCompile>
     <ClCompile Include="crypto\c_skein.c">
@@ -177,6 +183,9 @@
     <ClCompile Include="algo\bastion.c">
       <Filter>algo</Filter>
     </ClCompile>
+    <ClCompile Include="algo\bitcore.c">
+      <Filter>algo</Filter>
+    </ClCompile>
     <ClCompile Include="algo\blake.c">
       <Filter>algo</Filter>
     </ClCompile>
@@ -192,6 +201,9 @@
     <ClCompile Include="algo\cryptonight.c">
       <Filter>algo</Filter>
     </ClCompile>
+    <ClCompile Include="algo\decred.c">
+      <Filter>algo</Filter>
+    </ClCompile>
     <ClCompile Include="algo\fresh.c">
       <Filter>algo</Filter>
     </ClCompile>
@@ -205,6 +217,12 @@
       <Filter>algo</Filter>
     </ClCompile>
     <ClCompile Include="algo\keccak.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\jha.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\lbry.c">
       <Filter>algo</Filter>
     </ClCompile>
     <ClCompile Include="algo\luffa.c">
@@ -252,6 +270,16 @@
     <ClCompile Include="algo\skein.c">
       <Filter>algo</Filter>
     </ClCompile>
+    <ClCompile Include="algo\timetravel.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\tribus.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\veltor.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\x11evo.c">
     <ClCompile Include="algo\velvet.c">
       <Filter>algo</Filter>
     </ClCompile>
@@ -265,6 +293,12 @@
       <Filter>algo</Filter>
     </ClCompile>
     <ClCompile Include="algo\x15.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\x17.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\xevan.c">
       <Filter>algo</Filter>
     </ClCompile>
     <ClCompile Include="algo\pluck.c">
@@ -289,6 +323,9 @@
       <Filter>algo</Filter>
     </ClCompile>
     <ClCompile Include="algo\scrypt-jane.c">
+      <Filter>algo</Filter>
+    </ClCompile>
+    <ClCompile Include="algo\sia.c">
       <Filter>algo</Filter>
     </ClCompile>
     <ClCompile Include="algo\sibcoin.c">
@@ -371,7 +408,7 @@
     <ClInclude Include="sha3\sph_whirlpool.h">
       <Filter>sph</Filter>
     </ClInclude>
-    <ClInclude Include="sha3\sph_gost.h">
+    <ClInclude Include="sha3\gost_streebog.h">
       <Filter>sph</Filter>
     </ClInclude>
     <ClInclude Include="compat.h">
