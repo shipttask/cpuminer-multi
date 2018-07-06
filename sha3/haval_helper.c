@@ -61,6 +61,7 @@ SPH_XCAT(haval, PASSES)
 		clen = 128U - current;
 		if (clen > len)
 			clen = (unsigned) len;
+			clen = len;
 		memcpy(sc->buf + current, data, clen);
 		data = (const unsigned char *)data + clen;
 		current += clen;
